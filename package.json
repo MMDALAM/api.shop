@@ -1,0 +1,26 @@
+{
+  "name": "shop-pro",
+  "version": "1.0.0",
+  "description": "test shop nodejs api",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon node index.js"
+  },
+  "keywords": [
+    "test shop nodejs api"
+  ],
+  "author": "mohammadalamzadeh",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "auto-bind": "^4.0.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "mongoose": "^6.11.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
