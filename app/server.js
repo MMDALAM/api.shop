@@ -35,7 +35,6 @@ module.exports = class Application {
     try {
       mongoose.set("strictQuery", false);
       mongoose.connect(this.#DB_URL);
-      console.log("connected to MongoDB");
       mongoose.connection.on("connected", () => {
         console.log("mongoose connected to DB");
       });
