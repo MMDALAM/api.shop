@@ -3,6 +3,8 @@ const app = express();
 const http = require("http");
 const mongoose = require("mongoose");
 const path = require("path");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
 const morgan = require("morgan");
 const { AllRouters } = require("./router/router");
 const createError = require("http-errors");
@@ -25,6 +27,29 @@ module.exports = class Application {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(express.static(path.join(__dirname, "..", "public")));
+    app.use(
+      "/api-doc",
+      swaggerUI.serve,
+      swaggerUI.setup(
+        swaggerJsdoc({
+          swaggerDefinition: {
+            info: {
+              title: "Boto start store ",
+              version: "2.0.0",
+              description:
+                "بزرگترین مرجع اموزش برنامه نویسی و فروش محصولات جذاب برای برنامه نویسان",
+              contact: {
+                name: "mmdalam",
+                url: "https://mmdalam.ir",
+                email: "mmmohammadalam@gmail.com",
+              },
+            },
+            servers: [{ url: "http://localhost:5000" }],
+          },
+          apis: ["./app/router/**/*.js"],
+        })
+      )
+    );
   }
   createServer() {
     http.createServer(app).listen(this.#PORT, () => {
