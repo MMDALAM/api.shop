@@ -58,6 +58,7 @@ module.exports = class Application {
   }
   connectMongoDB() {
     try {
+      mongoose.Promise = global.Promise;
       mongoose.set("strictQuery", false);
       mongoose.connect(this.#DB_URL);
       mongoose.connection.on("connected", () => {

@@ -5,7 +5,7 @@ const userSchema = Schema(
   {
     first_name: { type: String },
     last_name: { type: String },
-    username: { type: String, required: true, lowercase: true },
+    username: { type: String, lowercase: true },
     mobile: { type: String, required: true },
     email: { type: String, lowercase: true },
     password: { type: String },
@@ -19,9 +19,9 @@ const userSchema = Schema(
     bills: { type: [], default: [] },
     discount: { type: Number, default: 0 },
     birthday: { type: String },
-    roles: { type: [String], default: ["USER"] },
+    Roles: { type: [String], default: ["USER"] },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("USER", userSchema);

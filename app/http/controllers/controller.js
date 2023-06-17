@@ -1,11 +1,7 @@
-const autoBind = require("auto-bind");
+const autoBind = require("auto-bind-inheritance");
 
 module.exports = class controller {
-  constructord() {
+  constructor() {
     autoBind(this);
   }
-  testMethod(){
-    return 'test String'
-  }
 };
-
