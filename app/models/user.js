@@ -6,14 +6,14 @@ const userSchema = Schema(
     first_name: { type: String },
     last_name: { type: String },
     username: { type: String, required: true, lowercase: true },
-    phone: { type: String },
+    mobile: { type: String, required: true },
     email: { type: String, lowercase: true },
     password: { type: String },
     otp: {
       type: Object,
       default: {
         code: 0,
-        expires: 0,
+        expiresIn: 0,
       },
     },
     bills: { type: [], default: [] },
