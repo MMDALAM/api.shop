@@ -8,6 +8,7 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const morgan = require("morgan");
 const { AllRouters } = require("./router/router");
 const createError = require("http-errors");
+const cors = require("cors");
 
 module.exports = class Application {
   #DB_URL;
@@ -23,6 +24,7 @@ module.exports = class Application {
   }
 
   configApplication() {
+    app.use(cors());
     app.use(morgan("dev"));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
